@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace tubes2_stima
 {
@@ -37,5 +38,63 @@ namespace tubes2_stima
         {
 
         }
+
+        private void fileBrowserButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            fd.Title = "Cari File pertemanan";
+            fd.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            fd.RestoreDirectory = 1 == 1;
+
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                string path = fd.FileName;
+                namaFileUploaded.Text = this.pathProcessor(path);
+                if (processFile(path))
+                {
+                    this.graf.uinfoGraf();
+                }
+                
+            }
+            
+        }
+
+        private bool processFile(string fileloc)
+        {
+            try
+            {
+                this.graf = new Graf();
+                string[] isitxt = File.ReadAllLines(fileloc);
+
+                for(int i=1;i<isitxt.Length;i++)
+                {
+                    string[] temp = isitxt[i].Split(' ');
+                    graf.addNode(temp[0], temp[1]);
+                }
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("there was an error: "+e);
+                //Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        private string pathProcessor(string longpath)
+        {
+            string s = "";
+            int a = longpath.Length-1;
+            while(a>=0 && longpath[a] != '\\')
+            {
+                s = longpath[a] + s;
+                a--;
+            }
+            return s;
+        }
+
+        //PROPERTY
+        Graf graf;
     }
 }

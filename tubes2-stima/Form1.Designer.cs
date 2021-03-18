@@ -37,9 +37,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.chooseAccountDropDown = new System.Windows.Forms.ComboBox();
+            this.exploreFriendDropDown = new System.Windows.Forms.ComboBox();
+            this.friendRecommendLabel = new System.Windows.Forms.Label();
+            this.fileBrowserButton = new System.Windows.Forms.Button();
+            this.namaFileUploaded = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // judulAplikasi
@@ -131,40 +133,60 @@
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // chooseAccountDropDown
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(159, 203);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 12;
+            this.chooseAccountDropDown.FormattingEnabled = true;
+            this.chooseAccountDropDown.Location = new System.Drawing.Point(159, 203);
+            this.chooseAccountDropDown.Name = "chooseAccountDropDown";
+            this.chooseAccountDropDown.Size = new System.Drawing.Size(121, 24);
+            this.chooseAccountDropDown.TabIndex = 12;
             // 
-            // comboBox2
+            // exploreFriendDropDown
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 232);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 13;
+            this.exploreFriendDropDown.FormattingEnabled = true;
+            this.exploreFriendDropDown.Location = new System.Drawing.Point(159, 232);
+            this.exploreFriendDropDown.Name = "exploreFriendDropDown";
+            this.exploreFriendDropDown.Size = new System.Drawing.Size(121, 24);
+            this.exploreFriendDropDown.TabIndex = 13;
             // 
-            // label2
+            // friendRecommendLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 308);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 36);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Friends Recomendation for ";
+            this.friendRecommendLabel.AutoSize = true;
+            this.friendRecommendLabel.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.friendRecommendLabel.Location = new System.Drawing.Point(26, 308);
+            this.friendRecommendLabel.Name = "friendRecommendLabel";
+            this.friendRecommendLabel.Size = new System.Drawing.Size(297, 36);
+            this.friendRecommendLabel.TabIndex = 14;
+            this.friendRecommendLabel.Text = "Friends Recomendation for ";
+            // 
+            // fileBrowserButton
+            // 
+            this.fileBrowserButton.Location = new System.Drawing.Point(153, 80);
+            this.fileBrowserButton.Name = "fileBrowserButton";
+            this.fileBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.fileBrowserButton.TabIndex = 15;
+            this.fileBrowserButton.Text = "Browse";
+            this.fileBrowserButton.UseVisualStyleBackColor = true;
+            this.fileBrowserButton.Click += new System.EventHandler(this.fileBrowserButton_Click);
+            // 
+            // namaFileUploaded
+            // 
+            this.namaFileUploaded.AutoSize = true;
+            this.namaFileUploaded.Location = new System.Drawing.Point(237, 85);
+            this.namaFileUploaded.Name = "namaFileUploaded";
+            this.namaFileUploaded.Size = new System.Drawing.Size(0, 17);
+            this.namaFileUploaded.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.namaFileUploaded);
+            this.Controls.Add(this.fileBrowserButton);
+            this.Controls.Add(this.friendRecommendLabel);
+            this.Controls.Add(this.exploreFriendDropDown);
+            this.Controls.Add(this.chooseAccountDropDown);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -194,9 +216,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox chooseAccountDropDown;
+        private System.Windows.Forms.ComboBox exploreFriendDropDown;
+        private System.Windows.Forms.Label friendRecommendLabel;
+        private System.Windows.Forms.Button fileBrowserButton;
+        private System.Windows.Forms.Label namaFileUploaded;
     }
 }
 
