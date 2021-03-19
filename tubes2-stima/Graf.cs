@@ -164,6 +164,14 @@ namespace tubes2_stima
                 nodes[i].printInfo();
             }
         }
-
+        public string[] getNodeId()
+        {
+            string[] ret = new string[nodesCount];
+            for(int i = 0; i < nodesCount; i++)
+            {
+                ret[i] = nodes[i].getId();
+            }
+            return ret;
+        }   
     }
 }

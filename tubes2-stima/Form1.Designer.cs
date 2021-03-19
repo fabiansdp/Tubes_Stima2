@@ -140,6 +140,7 @@
             this.chooseAccountDropDown.Name = "chooseAccountDropDown";
             this.chooseAccountDropDown.Size = new System.Drawing.Size(121, 24);
             this.chooseAccountDropDown.TabIndex = 12;
+            this.chooseAccountDropDown.SelectedIndexChanged += new System.EventHandler(this.chooseAccountDropDown_SelectedIndexChanged);
             // 
             // exploreFriendDropDown
             // 
@@ -148,6 +149,7 @@
             this.exploreFriendDropDown.Name = "exploreFriendDropDown";
             this.exploreFriendDropDown.Size = new System.Drawing.Size(121, 24);
             this.exploreFriendDropDown.TabIndex = 13;
+            this.exploreFriendDropDown.SelectedIndexChanged += new System.EventHandler(this.exploreFriendDropDown_SelectedIndexChanged);
             // 
             // friendRecommendLabel
             // 

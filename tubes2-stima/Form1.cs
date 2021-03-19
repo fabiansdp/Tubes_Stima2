@@ -13,6 +13,8 @@ namespace tubes2_stima
 {
     public partial class Form1 : Form
     {
+        string choosenPeople;
+        string choosenFriend;
         public Form1()
         {
             InitializeComponent();
@@ -52,7 +54,13 @@ namespace tubes2_stima
                 namaFileUploaded.Text = this.pathProcessor(path);
                 if (processFile(path))
                 {
-                    this.graf.uinfoGraf();
+                    //this.graf.uinfoGraf();
+                    chooseAccountDropDown.Items.Clear();
+                    chooseAccountDropDown.ResetText();
+                    foreach(string s in graf.getNodeId())
+                    {
+                        this.chooseAccountDropDown.Items.Add(s);
+                    }
                 }
                 
             }
@@ -74,9 +82,9 @@ namespace tubes2_stima
 
                 return true;
             }
-            catch(Exception e)
+            catch(Exception ee)
             {
-                MessageBox.Show("there was an error: "+e);
+                MessageBox.Show("there was an error: "+ee);
                 //Console.WriteLine(e);
                 return false;
             }
@@ -96,5 +104,39 @@ namespace tubes2_stima
 
         //PROPERTY
         Graf graf;
+
+        private void chooseAccountDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int s = this.chooseAccountDropDown.SelectedIndex;
+                this.choosenPeople = graf.getNodeId()[s];
+                exploreFriendDropDown.Items.Clear();
+                exploreFriendDropDown.ResetText();
+                foreach (string teman in graf.getFriend(choosenPeople))
+                {
+                    exploreFriendDropDown.Items.Add(teman);
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("there was an error: " + ee);
+            }
+        }
+
+        private void exploreFriendDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] temanku = graf.getFriend(this.choosenPeople);
+                this.choosenFriend = temanku[exploreFriendDropDown.SelectedIndex];
+                //Console.WriteLine(choosenFriend);
+            }
+            catch(Exception ee)
+            {
+                MessageBox.Show("there was an error: " + ee);
+                //Console.WriteLine(e);
+            }
+        }
     }
 }
