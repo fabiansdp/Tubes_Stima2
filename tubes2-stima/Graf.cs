@@ -8,6 +8,9 @@ namespace tubes2_stima
 {
     public class Graf
     {
+        private Node[] nodes;
+        private int nodesCount;
+
         private class Node
         {
             private string id;
@@ -54,10 +57,17 @@ namespace tubes2_stima
             {
                 return id;
             }
+
             public string[] getTeman()
             {
                 return this.teman;
             }
+
+            public int getNumOfFriend()
+            {
+                return this.numOfFriend;
+            }
+
             public bool cariTeman(string namaTeman)
             {
                 int i = 0;
@@ -72,6 +82,7 @@ namespace tubes2_stima
                 }
                 return flag;
             }
+
             public void printInfo()
             {
                 Console.WriteLine("personId : " + this.id);
@@ -82,17 +93,34 @@ namespace tubes2_stima
                 }
                 Console.Write("\n");
             }
+
+            // Mengembalikan sebuah list node berupa mutual friend user1 dan user2
+            public string[] mutualFriend(Node node1, Node node2)
+            {
+                List<string> mutual = new List<string>();
+
+                for (int i = 0; i < node1.numOfFriend; i++)
+                {
+                    if (node2.cariTeman(node1.teman[i]))
+                    {
+                       mutual.Add(node1.teman[i]);
+                    }
+                }
+
+                return mutual.ToArray();
+            }
         }
-        private Node[] nodes;
-        private int nodesCount;
+
         public Graf()
         {
             nodesCount = 0;
         }  
+
         public int getNodesCount()
         {
             return nodesCount;
         }
+
         public int searchNode(string nodeId)
         {
             int i;
@@ -105,6 +133,7 @@ namespace tubes2_stima
             }
             return -1;
         }
+
         public string[] getFriend(string nodeId)
         {
             if (this.searchNode(nodeId) < 0)
@@ -124,6 +153,7 @@ namespace tubes2_stima
                 return new string[0];
             }
         }
+
         public void addNode(string id)
         {
             int flag = searchNode(id);
@@ -148,6 +178,7 @@ namespace tubes2_stima
                 }
             }
         }
+
         public void addNode(string id, string friend)
         {
             addNode(id);
@@ -157,13 +188,15 @@ namespace tubes2_stima
             flag = searchNode(friend);
             nodes[flag].addFriend(id);
         }
-        public void uinfoGraf()
+
+        public void infoGraf()
         {
             for (int i = 0; i < this.nodesCount; i++)
             {
                 nodes[i].printInfo();
             }
         }
+
         public string[] getNodeId()
         {
             string[] ret = new string[nodesCount];
@@ -172,6 +205,32 @@ namespace tubes2_stima
                 ret[i] = nodes[i].getId();
             }
             return ret;
-        }   
+        }  
+
+        // Mengembalikan sebuah list berisi rekomendasi friend untuk user
+        public string[] recommendFriend(Node user)
+        {
+            string[] userFriend = user.getTeman();
+            List<string> resultList = new List<string>();
+
+            for (int i = 0; i < user.getNumOfFriend(); i++)
+            {
+                int friendNodeIdx = searchNode(userFriend[i]);
+                Node friend = this.nodes[friendNodeIdx];
+                string[] friendList = friend.getTeman();
+
+                for (int j = 0; j < friend.getNumOfFriend(); j++)
+                {
+                    int index = resultList.BinarySearch(friendList[j]);
+
+                    if (index < 0)
+                    {
+                        resultList.Insert(~index, friendList[j]);
+                    }
+                }
+            }
+
+            return resultList.ToArray();
+        }
     }
 }

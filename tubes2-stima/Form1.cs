@@ -54,7 +54,7 @@ namespace tubes2_stima
                 namaFileUploaded.Text = this.pathProcessor(path);
                 if (processFile(path))
                 {
-                    //this.graf.uinfoGraf();
+                    this.graf.infoGraf();
                     chooseAccountDropDown.Items.Clear();
                     chooseAccountDropDown.ResetText();
                     foreach(string s in graf.getNodeId())
@@ -130,7 +130,7 @@ namespace tubes2_stima
             {
                 string[] temanku = graf.getFriend(this.choosenPeople);
                 this.choosenFriend = temanku[exploreFriendDropDown.SelectedIndex];
-                //Console.WriteLine(choosenFriend);
+                Console.WriteLine(choosenFriend);
             }
             catch(Exception ee)
             {
