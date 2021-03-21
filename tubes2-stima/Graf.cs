@@ -11,7 +11,7 @@ namespace tubes2_stima
         private Node[] nodes;
         private int nodesCount;
 
-        private class Node
+        public class Node
         {
             private string id;
             private string[] teman;
@@ -95,15 +95,15 @@ namespace tubes2_stima
             }
 
             // Mengembalikan sebuah list node berupa mutual friend user1 dan user2
-            public string[] mutualFriend(Node node1, Node node2)
+            public string[] mutualFriend(Node node)
             {
                 List<string> mutual = new List<string>();
 
-                for (int i = 0; i < node1.numOfFriend; i++)
+                for (int i = 0; i < this.numOfFriend; i++)
                 {
-                    if (node2.cariTeman(node1.teman[i]))
+                    if (node.cariTeman(this.teman[i]))
                     {
-                       mutual.Add(node1.teman[i]);
+                       mutual.Add(this.teman[i]);
                     }
                 }
 
@@ -132,6 +132,11 @@ namespace tubes2_stima
                 }
             }
             return -1;
+        }
+
+        public Node getNode(int index)
+        {
+            return this.nodes[index];
         }
 
         public string[] getFriend(string nodeId)
@@ -221,11 +226,11 @@ namespace tubes2_stima
 
                 for (int j = 0; j < friend.getNumOfFriend(); j++)
                 {
-                    int index = resultList.BinarySearch(friendList[j]);
+                    int resultIndex = resultList.BinarySearch(friendList[j]);
 
-                    if (index < 0)
+                    if (resultIndex < 0 && !userFriend.Contains(friendList[j]) && friendList[j] != user.getId()) 
                     {
-                        resultList.Insert(~index, friendList[j]);
+                        resultList.Insert(~resultIndex, friendList[j]);
                     }
                 }
             }

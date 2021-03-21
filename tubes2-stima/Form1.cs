@@ -13,17 +13,11 @@ namespace tubes2_stima
 {
     public partial class Form1 : Form
     {
-        string choosenPeople;
-        string choosenFriend;
+        string chosenPeople;
+        string chosenFriend;
         public Form1()
         {
             InitializeComponent();
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -110,10 +104,10 @@ namespace tubes2_stima
             try
             {
                 int s = this.chooseAccountDropDown.SelectedIndex;
-                this.choosenPeople = graf.getNodeId()[s];
+                this.chosenPeople = graf.getNodeId()[s];
                 exploreFriendDropDown.Items.Clear();
                 exploreFriendDropDown.ResetText();
-                foreach (string teman in graf.getFriend(choosenPeople))
+                foreach (string teman in graf.getFriend(chosenPeople))
                 {
                     exploreFriendDropDown.Items.Add(teman);
                 }
@@ -128,14 +122,45 @@ namespace tubes2_stima
         {
             try
             {
-                string[] temanku = graf.getFriend(this.choosenPeople);
-                this.choosenFriend = temanku[exploreFriendDropDown.SelectedIndex];
-                Console.WriteLine(choosenFriend);
+                string[] temanku = graf.getFriend(this.chosenPeople);
+                this.chosenFriend = temanku[exploreFriendDropDown.SelectedIndex];
+                Console.WriteLine(chosenFriend);
             }
             catch(Exception ee)
             {
                 MessageBox.Show("there was an error: " + ee);
                 //Console.WriteLine(e);
+            }
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string recommendText = "";
+                this.friendRecommendLabel.Text = "Friends Recommendations for " + this.chosenPeople + ":";
+                int index = graf.searchNode(this.chosenPeople);
+                Graf.Node chosenUser = graf.getNode(index);
+                string[] recommendFriend = graf.recommendFriend(chosenUser);
+
+                for (int i = 0; i < recommendFriend.Length; i++)
+                {
+                    int friendIdx = graf.searchNode(recommendFriend[i]);
+                    string[] mutual = chosenUser.mutualFriend(graf.getNode(friendIdx));
+                    recommendText = recommendText + "Nama Akun: " + recommendFriend[i] + "\n";
+                    recommendText += mutual.Length.ToString() + " mutual friends:\n";
+                    for (int j = 0; j < mutual.Length; j++)
+                    {
+                        recommendText = recommendText + mutual[j] + "\n";
+                    }
+                    recommendText += "\n";
+                }
+
+                this.recommend.Text = recommendText;
+
+            } catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
             }
         }
     }

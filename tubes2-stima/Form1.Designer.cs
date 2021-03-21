@@ -42,6 +42,7 @@
             this.friendRecommendLabel = new System.Windows.Forms.Label();
             this.fileBrowserButton = new System.Windows.Forms.Button();
             this.namaFileUploaded = new System.Windows.Forms.Label();
+            this.recommend = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // judulAplikasi
@@ -53,7 +54,7 @@
             this.judulAplikasi.Name = "judulAplikasi";
             this.judulAplikasi.Size = new System.Drawing.Size(475, 70);
             this.judulAplikasi.TabIndex = 3;
-            this.judulAplikasi.Text = "People May You Know";
+            this.judulAplikasi.Text = "People You May Know";
             // 
             // label1
             // 
@@ -109,7 +110,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 206);
+            this.label4.Location = new System.Drawing.Point(23, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 17);
             this.label4.TabIndex = 9;
@@ -118,7 +119,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 232);
+            this.label5.Location = new System.Drawing.Point(23, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 17);
             this.label5.TabIndex = 10;
@@ -126,17 +127,18 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(29, 268);
+            this.submitButton.Location = new System.Drawing.Point(26, 217);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
             this.submitButton.TabIndex = 11;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // chooseAccountDropDown
             // 
             this.chooseAccountDropDown.FormattingEnabled = true;
-            this.chooseAccountDropDown.Location = new System.Drawing.Point(159, 203);
+            this.chooseAccountDropDown.Location = new System.Drawing.Point(156, 152);
             this.chooseAccountDropDown.Name = "chooseAccountDropDown";
             this.chooseAccountDropDown.Size = new System.Drawing.Size(121, 24);
             this.chooseAccountDropDown.TabIndex = 12;
@@ -145,7 +147,7 @@
             // exploreFriendDropDown
             // 
             this.exploreFriendDropDown.FormattingEnabled = true;
-            this.exploreFriendDropDown.Location = new System.Drawing.Point(159, 232);
+            this.exploreFriendDropDown.Location = new System.Drawing.Point(156, 181);
             this.exploreFriendDropDown.Name = "exploreFriendDropDown";
             this.exploreFriendDropDown.Size = new System.Drawing.Size(121, 24);
             this.exploreFriendDropDown.TabIndex = 13;
@@ -155,7 +157,7 @@
             // 
             this.friendRecommendLabel.AutoSize = true;
             this.friendRecommendLabel.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.friendRecommendLabel.Location = new System.Drawing.Point(26, 308);
+            this.friendRecommendLabel.Location = new System.Drawing.Point(20, 271);
             this.friendRecommendLabel.Name = "friendRecommendLabel";
             this.friendRecommendLabel.Size = new System.Drawing.Size(297, 36);
             this.friendRecommendLabel.TabIndex = 14;
@@ -179,11 +181,21 @@
             this.namaFileUploaded.Size = new System.Drawing.Size(0, 17);
             this.namaFileUploaded.TabIndex = 16;
             // 
+            // recommend
+            // 
+            this.recommend.AutoSize = true;
+            this.recommend.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recommend.Location = new System.Drawing.Point(22, 307);
+            this.recommend.Name = "recommend";
+            this.recommend.Size = new System.Drawing.Size(0, 20);
+            this.recommend.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 450);
+            this.ClientSize = new System.Drawing.Size(836, 579);
+            this.Controls.Add(this.recommend);
             this.Controls.Add(this.namaFileUploaded);
             this.Controls.Add(this.fileBrowserButton);
             this.Controls.Add(this.friendRecommendLabel);
@@ -201,7 +213,6 @@
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Text = "Tubes Stima 2";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +234,7 @@
         private System.Windows.Forms.Label friendRecommendLabel;
         private System.Windows.Forms.Button fileBrowserButton;
         private System.Windows.Forms.Label namaFileUploaded;
+        private System.Windows.Forms.Label recommend;
     }
 }
 
