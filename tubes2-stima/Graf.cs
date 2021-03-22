@@ -243,7 +243,7 @@ namespace tubes2_stima
             return resultList.ToArray();
         }
 
-        public void BFS(Node node1, Node node2)
+        public string[] BFS(Node node1, Node node2)
         {
             Queue<Node> antrian = new Queue<Node>();
             Boolean[] dikunjungi = new Boolean[this.getNodesCount()];
@@ -282,23 +282,14 @@ namespace tubes2_stima
                         kunjungan.RemoveAt(i-1);
                     }
                 }
-                for (int i = 0; i < kunjungan.Count(); i++)
-                {
-                    if (i == kunjungan.Count() - 1)
-                    {
-                        Console.Write(kunjungan.ElementAt(i) + "\n");
-                    } else
-                    {
-                        Console.Write(kunjungan.ElementAt(i) + " -> ");
-                    }
-                }
+                return kunjungan.ToArray();
             } else
             {
-                Console.Write("Tidak ditemukan hubungan");
+                return string[];
             }
         }
 
-        public void DFS(Node node1, Node node2)
+        public string[] DFS(Node node1, Node node2)
         {
             Boolean[] dikunjungi = new Boolean[this.getNodesCount()];
             List<string> kunjungan = new List<string>();
@@ -327,19 +318,10 @@ namespace tubes2_stima
                         kunjungan.RemoveAt(i-1);
                     }
                 }
-                for (int i = 0; i < kunjungan.Count(); i++)
-                {
-                    if (i == kunjungan.Count() - 1)
-                    {
-                        Console.Write(kunjungan.ElementAt(i) + "\n");
-                    } else
-                    {
-                        Console.Write(kunjungan.ElementAt(i) + " -> ");
-                    }
-                }
+                return kunjungan.ToArray();
             } else
             {
-                Console.Write("Tidak ditemukan hubungan");
+                return string[];
             }
         }
     }
