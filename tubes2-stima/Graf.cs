@@ -269,6 +269,19 @@ namespace tubes2_stima
             }
             if (kunjungan.Contains(node2.getId()))
             {
+                for (int i = kunjungan.Count()-1; i >= 1; i--)
+                {
+                    if (!this.getNodebyId(kunjungan.ElementAt(i)).cariTeman(kunjungan.ElementAt(i-1))){
+                        kunjungan.RemoveAt(i-1);
+                    }
+                }
+                for (int i = kunjungan.Count()-1; i >= 2; i--)
+                {
+                    if (this.getNodebyId(kunjungan.ElementAt(i)).cariTeman(kunjungan.ElementAt(i-2)))
+                    {
+                        kunjungan.RemoveAt(i-1);
+                    }
+                }
                 for (int i = 0; i < kunjungan.Count(); i++)
                 {
                     if (i == kunjungan.Count() - 1)
@@ -284,6 +297,7 @@ namespace tubes2_stima
                 Console.Write("Tidak ditemukan hubungan");
             }
         }
+
         public void DFS(Node node1, Node node2)
         {
             Boolean[] dikunjungi = new Boolean[this.getNodesCount()];
