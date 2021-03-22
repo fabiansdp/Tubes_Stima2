@@ -139,6 +139,11 @@ namespace tubes2_stima
             return this.nodes[index];
         }
 
+        public Node getNodebyId(string nodeId)
+        {
+            return this.nodes[this.searchNode(nodeId)];
+        }
+
         public string[] getFriend(string nodeId)
         {
             if (this.searchNode(nodeId) < 0)
@@ -236,6 +241,106 @@ namespace tubes2_stima
             }
 
             return resultList.ToArray();
+        }
+
+        public void BFS(Node node1, Node node2)
+        {
+            Queue<Node> antrian = new Queue<Node>();
+            Boolean[] dikunjungi = new Boolean[this.getNodesCount()];
+            List<string> kunjungan = new List<string>();
+            Node currNode = new Node("-");
+            string[] currFriend;
+            antrian.Enqueue(node1);
+            while (antrian.Count() != 0 && currNode != node2)
+            {
+                if (antrian.Count() != 0){
+                    currNode = antrian.Dequeue();
+                }
+                kunjungan.Add(currNode.getId());
+                dikunjungi[searchNode(currNode.getId())] = true;
+                currFriend = this.getFriend(currNode.getId());
+                for (int i = 0; i < currNode.getNumOfFriend(); i++)
+                {
+                    if (dikunjungi[searchNode(currFriend[i])] != true && !antrian.Contains(this.getNodebyId(currFriend[i])))
+                    {
+                        antrian.Enqueue(getNodebyId(currFriend[i]));
+                    }
+                }
+            }
+            if (kunjungan.Contains(node2.getId()))
+            {
+                for (int i = kunjungan.Count()-1; i >= 1; i--)
+                {
+                    if (!this.getNodebyId(kunjungan.ElementAt(i)).cariTeman(kunjungan.ElementAt(i-1))){
+                        kunjungan.RemoveAt(i-1);
+                    }
+                }
+                for (int i = kunjungan.Count()-1; i >= 2; i--)
+                {
+                    if (this.getNodebyId(kunjungan.ElementAt(i)).cariTeman(kunjungan.ElementAt(i-2)))
+                    {
+                        kunjungan.RemoveAt(i-1);
+                    }
+                }
+                for (int i = 0; i < kunjungan.Count(); i++)
+                {
+                    if (i == kunjungan.Count() - 1)
+                    {
+                        Console.Write(kunjungan.ElementAt(i) + "\n");
+                    } else
+                    {
+                        Console.Write(kunjungan.ElementAt(i) + " -> ");
+                    }
+                }
+            } else
+            {
+                Console.Write("Tidak ditemukan hubungan");
+            }
+        }
+
+        public void DFS(Node node1, Node node2)
+        {
+            Boolean[] dikunjungi = new Boolean[this.getNodesCount()];
+            List<string> kunjungan = new List<string>();
+            Stack<Node> stack = new Stack<Node>();
+            Node currNode = new Node("-");
+            string[] currFriend;
+            stack.Push(node1);
+            while (stack.Count() != 0 && !kunjungan.Contains(node2.getId()))
+            {
+                currNode = stack.Pop();
+                currFriend = currNode.getTeman();
+                kunjungan.Add(currNode.getId());
+                dikunjungi[searchNode(currNode.getId())] = true;
+                for (int i = currNode.getNumOfFriend()-1; i >= 0; i--){
+                    if (!dikunjungi[searchNode(currFriend[i])] && !kunjungan.Contains(currFriend[i]))
+                    {
+                        stack.Push(getNodebyId(currFriend[i]));
+                    }
+                }
+            }
+            if (kunjungan.Contains(node2.getId()))
+            {
+                for (int i = kunjungan.Count()-1; i >= 1; i--)
+                {
+                    if (!this.getNodebyId(kunjungan.ElementAt(i)).cariTeman(kunjungan.ElementAt(i-1))){
+                        kunjungan.RemoveAt(i-1);
+                    }
+                }
+                for (int i = 0; i < kunjungan.Count(); i++)
+                {
+                    if (i == kunjungan.Count() - 1)
+                    {
+                        Console.Write(kunjungan.ElementAt(i) + "\n");
+                    } else
+                    {
+                        Console.Write(kunjungan.ElementAt(i) + " -> ");
+                    }
+                }
+            } else
+            {
+                Console.Write("Tidak ditemukan hubungan");
+            }
         }
     }
 }
