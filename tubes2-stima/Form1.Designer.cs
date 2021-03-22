@@ -43,6 +43,7 @@
             this.fileBrowserButton = new System.Windows.Forms.Button();
             this.namaFileUploaded = new System.Windows.Forms.Label();
             this.recommend = new System.Windows.Forms.Label();
+            this.visualisasiGraf = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // judulAplikasi
@@ -64,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Graph File   :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // filePath
             // 
@@ -93,7 +93,6 @@
             this.radioButtonBFS.TabStop = true;
             this.radioButtonBFS.Text = "BFS";
             this.radioButtonBFS.UseVisualStyleBackColor = true;
-            this.radioButtonBFS.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButtonDFS
             // 
@@ -105,7 +104,6 @@
             this.radioButtonDFS.TabStop = true;
             this.radioButtonDFS.Text = "DFS";
             this.radioButtonDFS.UseVisualStyleBackColor = true;
-            this.radioButtonDFS.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // label4
             // 
@@ -190,11 +188,19 @@
             this.recommend.Size = new System.Drawing.Size(0, 20);
             this.recommend.TabIndex = 17;
             // 
+            // visualisasiGraf
+            // 
+            this.visualisasiGraf.Location = new System.Drawing.Point(650, 9);
+            this.visualisasiGraf.Name = "visualisasiGraf";
+            this.visualisasiGraf.Size = new System.Drawing.Size(686, 621);
+            this.visualisasiGraf.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 579);
+            this.ClientSize = new System.Drawing.Size(1354, 654);
+            this.Controls.Add(this.visualisasiGraf);
             this.Controls.Add(this.recommend);
             this.Controls.Add(this.namaFileUploaded);
             this.Controls.Add(this.fileBrowserButton);
@@ -235,6 +241,7 @@
         private System.Windows.Forms.Button fileBrowserButton;
         private System.Windows.Forms.Label namaFileUploaded;
         private System.Windows.Forms.Label recommend;
+        private System.Windows.Forms.Panel visualisasiGraf;
     }
 }
 

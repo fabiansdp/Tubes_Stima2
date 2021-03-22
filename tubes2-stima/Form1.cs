@@ -20,21 +20,6 @@ namespace tubes2_stima
             InitializeComponent();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void fileBrowserButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fd = new OpenFileDialog();
@@ -48,7 +33,6 @@ namespace tubes2_stima
                 namaFileUploaded.Text = this.pathProcessor(path);
                 if (processFile(path))
                 {
-                    this.graf.infoGraf();
                     chooseAccountDropDown.Items.Clear();
                     chooseAccountDropDown.ResetText();
                     foreach(string s in graf.getNodeId())
@@ -66,20 +50,29 @@ namespace tubes2_stima
             try
             {
                 this.graf = new Graf();
+                Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
                 string[] isitxt = File.ReadAllLines(fileloc);
 
                 for(int i=1;i<isitxt.Length;i++)
                 {
                     string[] temp = isitxt[i].Split(' ');
                     graf.addNode(temp[0], temp[1]);
+                    graph.AddEdge(temp[0], temp[1]);
                 }
+
+                viewer.Graph = graph;
+                visualisasiGraf.SuspendLayout();
+                viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                visualisasiGraf.Controls.Add(viewer);
+                visualisasiGraf.ResumeLayout();
+                visualisasiGraf.Show();
 
                 return true;
             }
             catch(Exception ee)
             {
                 MessageBox.Show("there was an error: "+ee);
-                //Console.WriteLine(e);
                 return false;
             }
         }
@@ -103,13 +96,17 @@ namespace tubes2_stima
         {
             try
             {
-                int s = this.chooseAccountDropDown.SelectedIndex;
-                this.chosenPeople = graf.getNodeId()[s];
+                int idx = this.chooseAccountDropDown.SelectedIndex;
+                this.chosenPeople = graf.getNodeId()[idx];
                 exploreFriendDropDown.Items.Clear();
                 exploreFriendDropDown.ResetText();
-                foreach (string teman in graf.getFriend(chosenPeople))
+
+                foreach (string id in graf.getNodeId())
                 {
-                    exploreFriendDropDown.Items.Add(teman);
+                    if (id != this.chosenPeople)
+                    {
+                        this.exploreFriendDropDown.Items.Add(id);
+                    }
                 }
             }
             catch (Exception ee)
@@ -124,44 +121,35 @@ namespace tubes2_stima
             {
                 string[] temanku = graf.getFriend(this.chosenPeople);
                 this.chosenFriend = temanku[exploreFriendDropDown.SelectedIndex];
-                Console.WriteLine(chosenFriend);
             }
             catch(Exception ee)
             {
                 MessageBox.Show("there was an error: " + ee);
-                //Console.WriteLine(e);
             }
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string recommendText = "";
-                this.friendRecommendLabel.Text = "Friends Recommendations for " + this.chosenPeople + ":";
-                int index = graf.searchNode(this.chosenPeople);
-                Graf.Node chosenUser = graf.getNode(index);
-                string[] recommendFriend = graf.recommendFriend(chosenUser);
+            string recommendText = "";
+            this.friendRecommendLabel.Text = "Friends Recommendations for " + this.chosenPeople + ":";
+            int index = graf.searchNode(this.chosenPeople);
+            Graf.Node chosenUser = graf.getNode(index);
+            string[] recommendFriend = graf.recommendFriend(chosenUser);
 
-                for (int i = 0; i < recommendFriend.Length; i++)
+            for (int i = 0; i < recommendFriend.Length; i++)
+            {
+                int friendIdx = graf.searchNode(recommendFriend[i]);
+                string[] mutual = chosenUser.mutualFriend(graf.getNode(friendIdx));
+                recommendText = recommendText + "Nama Akun: " + recommendFriend[i] + "\n";
+                recommendText += mutual.Length.ToString() + " mutual friends:\n";
+                for (int j = 0; j < mutual.Length; j++)
                 {
-                    int friendIdx = graf.searchNode(recommendFriend[i]);
-                    string[] mutual = chosenUser.mutualFriend(graf.getNode(friendIdx));
-                    recommendText = recommendText + "Nama Akun: " + recommendFriend[i] + "\n";
-                    recommendText += mutual.Length.ToString() + " mutual friends:\n";
-                    for (int j = 0; j < mutual.Length; j++)
-                    {
-                        recommendText = recommendText + mutual[j] + "\n";
-                    }
-                    recommendText += "\n";
+                    recommendText = recommendText + mutual[j] + "\n";
                 }
-
-                this.recommend.Text = recommendText;
-
-            } catch (Exception error)
-            {
-                MessageBox.Show(error.ToString());
+                recommendText += "\n";
             }
+
+            this.recommend.Text = recommendText;
         }
     }
 }
