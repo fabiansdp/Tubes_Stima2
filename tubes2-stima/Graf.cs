@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tubes2_stima
 {
@@ -285,7 +283,7 @@ namespace tubes2_stima
                 return kunjungan.ToArray();
             } else
             {
-                return string[];
+                return new string[0];
             }
         }
 
@@ -321,7 +319,7 @@ namespace tubes2_stima
                 return kunjungan.ToArray();
             } else
             {
-                return string[];
+                return new string[0];
             }
         }
     }

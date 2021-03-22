@@ -44,6 +44,9 @@
             this.namaFileUploaded = new System.Windows.Forms.Label();
             this.recommend = new System.Windows.Forms.Label();
             this.visualisasiGraf = new System.Windows.Forms.Panel();
+            this.titleKoneksi = new System.Windows.Forms.Label();
+            this.jalurKoneksi = new System.Windows.Forms.Label();
+            this.degreeConnection = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // judulAplikasi
@@ -93,6 +96,7 @@
             this.radioButtonBFS.TabStop = true;
             this.radioButtonBFS.Text = "BFS";
             this.radioButtonBFS.UseVisualStyleBackColor = true;
+            this.radioButtonBFS.CheckedChanged += new System.EventHandler(this.radioButtonBFS_CheckedChanged);
             // 
             // radioButtonDFS
             // 
@@ -104,6 +108,7 @@
             this.radioButtonDFS.TabStop = true;
             this.radioButtonDFS.Text = "DFS";
             this.radioButtonDFS.UseVisualStyleBackColor = true;
+            this.radioButtonDFS.CheckedChanged += new System.EventHandler(this.radioButtonDFS_CheckedChanged);
             // 
             // label4
             // 
@@ -155,7 +160,7 @@
             // 
             this.friendRecommendLabel.AutoSize = true;
             this.friendRecommendLabel.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.friendRecommendLabel.Location = new System.Drawing.Point(20, 271);
+            this.friendRecommendLabel.Location = new System.Drawing.Point(20, 362);
             this.friendRecommendLabel.Name = "friendRecommendLabel";
             this.friendRecommendLabel.Size = new System.Drawing.Size(297, 36);
             this.friendRecommendLabel.TabIndex = 14;
@@ -183,7 +188,7 @@
             // 
             this.recommend.AutoSize = true;
             this.recommend.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recommend.Location = new System.Drawing.Point(22, 307);
+            this.recommend.Location = new System.Drawing.Point(22, 398);
             this.recommend.Name = "recommend";
             this.recommend.Size = new System.Drawing.Size(0, 20);
             this.recommend.TabIndex = 17;
@@ -192,14 +197,45 @@
             // 
             this.visualisasiGraf.Location = new System.Drawing.Point(650, 9);
             this.visualisasiGraf.Name = "visualisasiGraf";
-            this.visualisasiGraf.Size = new System.Drawing.Size(686, 621);
+            this.visualisasiGraf.Size = new System.Drawing.Size(686, 755);
             this.visualisasiGraf.TabIndex = 18;
+            // 
+            // titleKoneksi
+            // 
+            this.titleKoneksi.AutoSize = true;
+            this.titleKoneksi.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.titleKoneksi.Location = new System.Drawing.Point(20, 260);
+            this.titleKoneksi.Name = "titleKoneksi";
+            this.titleKoneksi.Size = new System.Drawing.Size(152, 36);
+            this.titleKoneksi.TabIndex = 19;
+            this.titleKoneksi.Text = "Jalur Koneksi";
+            // 
+            // jalurKoneksi
+            // 
+            this.jalurKoneksi.AutoSize = true;
+            this.jalurKoneksi.Font = new System.Drawing.Font("Roboto", 10.2F);
+            this.jalurKoneksi.Location = new System.Drawing.Point(22, 324);
+            this.jalurKoneksi.Name = "jalurKoneksi";
+            this.jalurKoneksi.Size = new System.Drawing.Size(0, 20);
+            this.jalurKoneksi.TabIndex = 20;
+            // 
+            // degreeConnection
+            // 
+            this.degreeConnection.AutoSize = true;
+            this.degreeConnection.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.degreeConnection.Location = new System.Drawing.Point(23, 296);
+            this.degreeConnection.Name = "degreeConnection";
+            this.degreeConnection.Size = new System.Drawing.Size(0, 20);
+            this.degreeConnection.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 654);
+            this.ClientSize = new System.Drawing.Size(1354, 779);
+            this.Controls.Add(this.degreeConnection);
+            this.Controls.Add(this.jalurKoneksi);
+            this.Controls.Add(this.titleKoneksi);
             this.Controls.Add(this.visualisasiGraf);
             this.Controls.Add(this.recommend);
             this.Controls.Add(this.namaFileUploaded);
@@ -242,6 +278,9 @@
         private System.Windows.Forms.Label namaFileUploaded;
         private System.Windows.Forms.Label recommend;
         private System.Windows.Forms.Panel visualisasiGraf;
+        private System.Windows.Forms.Label titleKoneksi;
+        private System.Windows.Forms.Label jalurKoneksi;
+        private System.Windows.Forms.Label degreeConnection;
     }
 }
 
