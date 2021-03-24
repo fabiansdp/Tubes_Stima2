@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.judulAplikasi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.filePath = new System.Windows.Forms.Label();
@@ -47,13 +49,19 @@
             this.titleKoneksi = new System.Windows.Forms.Label();
             this.jalurKoneksi = new System.Windows.Forms.Label();
             this.degreeConnection = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // judulAplikasi
             // 
             this.judulAplikasi.AutoSize = true;
+            this.judulAplikasi.BackColor = System.Drawing.Color.Transparent;
             this.judulAplikasi.Font = new System.Drawing.Font("Poppins SemiBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.judulAplikasi.Location = new System.Drawing.Point(11, 9);
+            this.judulAplikasi.ForeColor = System.Drawing.Color.White;
+            this.judulAplikasi.Location = new System.Drawing.Point(11, 12);
             this.judulAplikasi.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.judulAplikasi.Name = "judulAplikasi";
             this.judulAplikasi.Size = new System.Drawing.Size(475, 70);
@@ -63,96 +71,119 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 83);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(21, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.Size = new System.Drawing.Size(117, 30);
             this.label1.TabIndex = 4;
             this.label1.Text = "Graph File   :";
             // 
             // filePath
             // 
             this.filePath.AutoSize = true;
-            this.filePath.Location = new System.Drawing.Point(234, 83);
+            this.filePath.BackColor = System.Drawing.Color.Transparent;
+            this.filePath.Location = new System.Drawing.Point(232, 92);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(0, 17);
+            this.filePath.Size = new System.Drawing.Size(0, 25);
             this.filePath.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 113);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(21, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 17);
+            this.label3.Size = new System.Drawing.Size(124, 30);
             this.label3.TabIndex = 6;
             this.label3.Text = "Algorithm     :";
             // 
             // radioButtonBFS
             // 
             this.radioButtonBFS.AutoSize = true;
-            this.radioButtonBFS.Location = new System.Drawing.Point(153, 113);
+            this.radioButtonBFS.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonBFS.ForeColor = System.Drawing.Color.White;
+            this.radioButtonBFS.Location = new System.Drawing.Point(151, 135);
+            this.radioButtonBFS.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.radioButtonBFS.Name = "radioButtonBFS";
-            this.radioButtonBFS.Size = new System.Drawing.Size(55, 21);
+            this.radioButtonBFS.Size = new System.Drawing.Size(57, 29);
             this.radioButtonBFS.TabIndex = 7;
             this.radioButtonBFS.TabStop = true;
             this.radioButtonBFS.Text = "BFS";
-            this.radioButtonBFS.UseVisualStyleBackColor = true;
+            this.radioButtonBFS.UseVisualStyleBackColor = false;
             this.radioButtonBFS.CheckedChanged += new System.EventHandler(this.radioButtonBFS_CheckedChanged);
             // 
             // radioButtonDFS
             // 
             this.radioButtonDFS.AutoSize = true;
-            this.radioButtonDFS.Location = new System.Drawing.Point(224, 113);
+            this.radioButtonDFS.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonDFS.ForeColor = System.Drawing.Color.White;
+            this.radioButtonDFS.Location = new System.Drawing.Point(222, 135);
+            this.radioButtonDFS.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.radioButtonDFS.Name = "radioButtonDFS";
-            this.radioButtonDFS.Size = new System.Drawing.Size(56, 21);
+            this.radioButtonDFS.Size = new System.Drawing.Size(58, 29);
             this.radioButtonDFS.TabIndex = 8;
             this.radioButtonDFS.TabStop = true;
             this.radioButtonDFS.Text = "DFS";
-            this.radioButtonDFS.UseVisualStyleBackColor = true;
+            this.radioButtonDFS.UseVisualStyleBackColor = false;
             this.radioButtonDFS.CheckedChanged += new System.EventHandler(this.radioButtonDFS_CheckedChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 155);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(21, 194);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 17);
+            this.label4.Size = new System.Drawing.Size(154, 30);
             this.label4.TabIndex = 9;
             this.label4.Text = "Choose Account";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 181);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(21, 233);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 17);
+            this.label5.Size = new System.Drawing.Size(173, 30);
             this.label5.TabIndex = 10;
             this.label5.Text = "Explore Friend With";
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(26, 217);
+            this.submitButton.BackColor = System.Drawing.Color.Transparent;
+            this.submitButton.Location = new System.Drawing.Point(24, 283);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.Size = new System.Drawing.Size(75, 34);
             this.submitButton.TabIndex = 11;
             this.submitButton.Text = "Submit";
-            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // chooseAccountDropDown
             // 
             this.chooseAccountDropDown.FormattingEnabled = true;
-            this.chooseAccountDropDown.Location = new System.Drawing.Point(156, 152);
+            this.chooseAccountDropDown.Location = new System.Drawing.Point(195, 194);
+            this.chooseAccountDropDown.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.chooseAccountDropDown.Name = "chooseAccountDropDown";
-            this.chooseAccountDropDown.Size = new System.Drawing.Size(121, 24);
+            this.chooseAccountDropDown.Size = new System.Drawing.Size(121, 31);
             this.chooseAccountDropDown.TabIndex = 12;
             this.chooseAccountDropDown.SelectedIndexChanged += new System.EventHandler(this.chooseAccountDropDown_SelectedIndexChanged);
             // 
             // exploreFriendDropDown
             // 
             this.exploreFriendDropDown.FormattingEnabled = true;
-            this.exploreFriendDropDown.Location = new System.Drawing.Point(156, 181);
+            this.exploreFriendDropDown.Location = new System.Drawing.Point(195, 236);
+            this.exploreFriendDropDown.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.exploreFriendDropDown.Name = "exploreFriendDropDown";
-            this.exploreFriendDropDown.Size = new System.Drawing.Size(121, 24);
+            this.exploreFriendDropDown.Size = new System.Drawing.Size(121, 31);
             this.exploreFriendDropDown.TabIndex = 13;
             this.exploreFriendDropDown.SelectedIndexChanged += new System.EventHandler(this.exploreFriendDropDown_SelectedIndexChanged);
             // 
@@ -160,7 +191,8 @@
             // 
             this.friendRecommendLabel.AutoSize = true;
             this.friendRecommendLabel.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.friendRecommendLabel.Location = new System.Drawing.Point(20, 362);
+            this.friendRecommendLabel.ForeColor = System.Drawing.Color.White;
+            this.friendRecommendLabel.Location = new System.Drawing.Point(3, 96);
             this.friendRecommendLabel.Name = "friendRecommendLabel";
             this.friendRecommendLabel.Size = new System.Drawing.Size(297, 36);
             this.friendRecommendLabel.TabIndex = 14;
@@ -168,9 +200,10 @@
             // 
             // fileBrowserButton
             // 
-            this.fileBrowserButton.Location = new System.Drawing.Point(153, 80);
+            this.fileBrowserButton.Location = new System.Drawing.Point(151, 87);
+            this.fileBrowserButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.fileBrowserButton.Name = "fileBrowserButton";
-            this.fileBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.fileBrowserButton.Size = new System.Drawing.Size(75, 34);
             this.fileBrowserButton.TabIndex = 15;
             this.fileBrowserButton.Text = "Browse";
             this.fileBrowserButton.UseVisualStyleBackColor = true;
@@ -179,32 +212,37 @@
             // namaFileUploaded
             // 
             this.namaFileUploaded.AutoSize = true;
-            this.namaFileUploaded.Location = new System.Drawing.Point(237, 85);
+            this.namaFileUploaded.Location = new System.Drawing.Point(235, 95);
             this.namaFileUploaded.Name = "namaFileUploaded";
-            this.namaFileUploaded.Size = new System.Drawing.Size(0, 17);
+            this.namaFileUploaded.Size = new System.Drawing.Size(0, 25);
             this.namaFileUploaded.TabIndex = 16;
             // 
             // recommend
             // 
             this.recommend.AutoSize = true;
-            this.recommend.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recommend.Location = new System.Drawing.Point(22, 398);
+            this.recommend.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recommend.ForeColor = System.Drawing.Color.White;
+            this.recommend.Location = new System.Drawing.Point(3, 132);
             this.recommend.Name = "recommend";
-            this.recommend.Size = new System.Drawing.Size(0, 20);
+            this.recommend.Size = new System.Drawing.Size(0, 30);
             this.recommend.TabIndex = 17;
             // 
             // visualisasiGraf
             // 
-            this.visualisasiGraf.Location = new System.Drawing.Point(650, 9);
+            this.visualisasiGraf.BackColor = System.Drawing.Color.Transparent;
+            this.visualisasiGraf.Location = new System.Drawing.Point(3, 5);
+            this.visualisasiGraf.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.visualisasiGraf.Name = "visualisasiGraf";
-            this.visualisasiGraf.Size = new System.Drawing.Size(686, 755);
+            this.visualisasiGraf.Size = new System.Drawing.Size(501, 699);
             this.visualisasiGraf.TabIndex = 18;
+            this.visualisasiGraf.Paint += new System.Windows.Forms.PaintEventHandler(this.visualisasiGraf_Paint);
             // 
             // titleKoneksi
             // 
             this.titleKoneksi.AutoSize = true;
             this.titleKoneksi.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.titleKoneksi.Location = new System.Drawing.Point(20, 260);
+            this.titleKoneksi.ForeColor = System.Drawing.Color.White;
+            this.titleKoneksi.Location = new System.Drawing.Point(3, 0);
             this.titleKoneksi.Name = "titleKoneksi";
             this.titleKoneksi.Size = new System.Drawing.Size(152, 36);
             this.titleKoneksi.TabIndex = 19;
@@ -213,34 +251,63 @@
             // jalurKoneksi
             // 
             this.jalurKoneksi.AutoSize = true;
-            this.jalurKoneksi.Font = new System.Drawing.Font("Roboto", 10.2F);
-            this.jalurKoneksi.Location = new System.Drawing.Point(22, 324);
+            this.jalurKoneksi.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jalurKoneksi.ForeColor = System.Drawing.Color.White;
+            this.jalurKoneksi.Location = new System.Drawing.Point(3, 66);
             this.jalurKoneksi.Name = "jalurKoneksi";
-            this.jalurKoneksi.Size = new System.Drawing.Size(0, 20);
+            this.jalurKoneksi.Size = new System.Drawing.Size(0, 30);
             this.jalurKoneksi.TabIndex = 20;
             // 
             // degreeConnection
             // 
             this.degreeConnection.AutoSize = true;
-            this.degreeConnection.Font = new System.Drawing.Font("Roboto", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.degreeConnection.Location = new System.Drawing.Point(23, 296);
+            this.degreeConnection.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.degreeConnection.ForeColor = System.Drawing.Color.White;
+            this.degreeConnection.Location = new System.Drawing.Point(3, 36);
             this.degreeConnection.Name = "degreeConnection";
-            this.degreeConnection.Size = new System.Drawing.Size(0, 20);
+            this.degreeConnection.Size = new System.Drawing.Size(0, 30);
             this.degreeConnection.TabIndex = 21;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AllowDrop = true;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.titleKoneksi);
+            this.flowLayoutPanel1.Controls.Add(this.degreeConnection);
+            this.flowLayoutPanel1.Controls.Add(this.jalurKoneksi);
+            this.flowLayoutPanel1.Controls.Add(this.friendRecommendLabel);
+            this.flowLayoutPanel1.Controls.Add(this.recommend);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 335);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(462, 241);
+            this.flowLayoutPanel1.TabIndex = 22;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            flowLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            flowLayoutPanel2.Controls.Add(this.visualisasiGraf);
+            flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            flowLayoutPanel2.Location = new System.Drawing.Point(509, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new System.Drawing.Size(537, 573);
+            flowLayoutPanel2.TabIndex = 23;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 779);
-            this.Controls.Add(this.degreeConnection);
-            this.Controls.Add(this.jalurKoneksi);
-            this.Controls.Add(this.titleKoneksi);
-            this.Controls.Add(this.visualisasiGraf);
-            this.Controls.Add(this.recommend);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(1054, 579);
+            this.Controls.Add(flowLayoutPanel2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.namaFileUploaded);
             this.Controls.Add(this.fileBrowserButton);
-            this.Controls.Add(this.friendRecommendLabel);
             this.Controls.Add(this.exploreFriendDropDown);
             this.Controls.Add(this.chooseAccountDropDown);
             this.Controls.Add(this.submitButton);
@@ -252,9 +319,15 @@
             this.Controls.Add(this.filePath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.judulAplikasi);
+            this.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Text = "Tubes Stima 2";
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,6 +354,7 @@
         private System.Windows.Forms.Label titleKoneksi;
         private System.Windows.Forms.Label jalurKoneksi;
         private System.Windows.Forms.Label degreeConnection;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

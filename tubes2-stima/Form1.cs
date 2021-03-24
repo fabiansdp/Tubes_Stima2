@@ -217,5 +217,10 @@ namespace tubes2_stima
         {
             this.mode = "DFS";
         }
+
+        private void visualisasiGraf_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
