@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.visualisasiGraf = new System.Windows.Forms.Panel();
             this.judulAplikasi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.filePath = new System.Windows.Forms.Label();
@@ -45,15 +46,36 @@
             this.fileBrowserButton = new System.Windows.Forms.Button();
             this.namaFileUploaded = new System.Windows.Forms.Label();
             this.recommend = new System.Windows.Forms.Label();
-            this.visualisasiGraf = new System.Windows.Forms.Panel();
             this.titleKoneksi = new System.Windows.Forms.Label();
             this.jalurKoneksi = new System.Windows.Forms.Label();
             this.degreeConnection = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            flowLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            flowLayoutPanel2.Controls.Add(this.visualisasiGraf);
+            flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            flowLayoutPanel2.Location = new System.Drawing.Point(509, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new System.Drawing.Size(537, 573);
+            flowLayoutPanel2.TabIndex = 23;
+            // 
+            // visualisasiGraf
+            // 
+            this.visualisasiGraf.BackColor = System.Drawing.Color.Transparent;
+            this.visualisasiGraf.Location = new System.Drawing.Point(3, 5);
+            this.visualisasiGraf.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.visualisasiGraf.Name = "visualisasiGraf";
+            this.visualisasiGraf.Size = new System.Drawing.Size(501, 699);
+            this.visualisasiGraf.TabIndex = 18;
+            this.visualisasiGraf.Paint += new System.Windows.Forms.PaintEventHandler(this.visualisasiGraf_Paint);
             // 
             // judulAplikasi
             // 
@@ -84,9 +106,11 @@
             // 
             this.filePath.AutoSize = true;
             this.filePath.BackColor = System.Drawing.Color.Transparent;
-            this.filePath.Location = new System.Drawing.Point(232, 92);
+            this.filePath.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filePath.ForeColor = System.Drawing.Color.White;
+            this.filePath.Location = new System.Drawing.Point(235, 90);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(0, 25);
+            this.filePath.Size = new System.Drawing.Size(0, 30);
             this.filePath.TabIndex = 5;
             // 
             // label3
@@ -212,9 +236,11 @@
             // namaFileUploaded
             // 
             this.namaFileUploaded.AutoSize = true;
-            this.namaFileUploaded.Location = new System.Drawing.Point(235, 95);
+            this.namaFileUploaded.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namaFileUploaded.ForeColor = System.Drawing.Color.White;
+            this.namaFileUploaded.Location = new System.Drawing.Point(241, 89);
             this.namaFileUploaded.Name = "namaFileUploaded";
-            this.namaFileUploaded.Size = new System.Drawing.Size(0, 25);
+            this.namaFileUploaded.Size = new System.Drawing.Size(0, 30);
             this.namaFileUploaded.TabIndex = 16;
             // 
             // recommend
@@ -226,16 +252,6 @@
             this.recommend.Name = "recommend";
             this.recommend.Size = new System.Drawing.Size(0, 30);
             this.recommend.TabIndex = 17;
-            // 
-            // visualisasiGraf
-            // 
-            this.visualisasiGraf.BackColor = System.Drawing.Color.Transparent;
-            this.visualisasiGraf.Location = new System.Drawing.Point(3, 5);
-            this.visualisasiGraf.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.visualisasiGraf.Name = "visualisasiGraf";
-            this.visualisasiGraf.Size = new System.Drawing.Size(501, 699);
-            this.visualisasiGraf.TabIndex = 18;
-            this.visualisasiGraf.Paint += new System.Windows.Forms.PaintEventHandler(this.visualisasiGraf_Paint);
             // 
             // titleKoneksi
             // 
@@ -285,23 +301,11 @@
             this.flowLayoutPanel1.TabIndex = 22;
             this.flowLayoutPanel1.WrapContents = false;
             // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            flowLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            flowLayoutPanel2.Controls.Add(this.visualisasiGraf);
-            flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new System.Drawing.Point(509, 3);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new System.Drawing.Size(537, 573);
-            flowLayoutPanel2.TabIndex = 23;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1054, 579);
             this.Controls.Add(flowLayoutPanel2);
@@ -320,14 +324,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.judulAplikasi);
             this.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Text = "Tubes Stima 2";
+            flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
